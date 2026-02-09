@@ -1,8 +1,8 @@
 import { Container } from "@/components/Container";
 import { Heading } from "@/components/Heading";
 import { PostCoverImage } from "@/components/PostCoverImage";
-import { PostHeading } from "@/components/PostHeading";
 import { PostsList } from "@/components/PostsList";
+import { PostText } from "@/components/PostText";
 import { SpinLoader } from "@/components/SpinLoader";
 import { Suspense } from "react";
 
@@ -16,36 +16,23 @@ export default async function HomePage() {
             >
                 <PostCoverImage
                     LinkProps={{
-                        href: "#",
+                        href: `#`,
                     }}
                     imageProps={{
                         width: 1200,
                         height: 720,
-                        src: "/images/bryen_9.png",
-                        alt: "Imagem de capa do post",
+                        src: "/images/bryen_1.png",
+                        alt: "Titulo qualquer",
                         priority: true,
                     }}
                 />
-                <div className="flex flex-col gap-4 sm:justify-center">
-                    <time
-                        className="text-slate-600 text-sm/tight"
-                        dateTime="2026-02-09"
-                    >
-                        09/02/2026 10:00
-                    </time>
-
-                    <PostHeading as="h1" url="#">
-                        Ola
-                    </PostHeading>
-
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Incidunt asperiores esse quo repudiandae at
-                        excepturi eius ratione consectetur nisi magni delectus
-                        quia repellendus ab voluptatem, aut dolor, veritatis
-                        explicabo ullam!
-                    </p>
-                </div>
+                <PostText
+                    title="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
+                    excerpt=" Nisi, quibusdam? Velit ratione assumenda dicta reprehenderit, corporis
+                    earum illo animi asperiores quis, tempora nemo maiores, labore
+                    molestiae. Rerum voluptate sed aut!"
+                    createdAt="2025-04-05T00:24:38.616Z"
+                ></PostText>
             </section>
             <Suspense fallback={<SpinLoader />}>
                 <PostsList />
