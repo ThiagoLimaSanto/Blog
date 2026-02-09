@@ -1,13 +1,24 @@
-import { postRepository } from "@/repositories/post/json-post-repository";
+import { Container } from "@/components/Container";
+import { PostsList } from "@/components/PostsList";
+import { SpinLoader } from "@/components/SpinLoader";
+import { Suspense } from "react";
 
 export default async function HomePage() {
-    const posts = await postRepository.findAll();
-
     return (
-        <div>
-            {posts.map((post) => (
-                <p key={post.id}>{post.title}</p>
-            ))}
-        </div>
+        <Container>
+            <header>
+                <h1 className="text-6xl font-bold text-center py-8">
+                    Aqui é a Header
+                </h1>
+            </header>
+            <Suspense fallback={<SpinLoader />}>
+                <PostsList />
+            </Suspense>
+            <footer>
+                <h1 className="text-6xl font-bold text-center py-8">
+                    Aqui é a Footer
+                </h1>
+            </footer>
+        </Container>
     );
 }
