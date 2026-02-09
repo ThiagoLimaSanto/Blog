@@ -1,9 +1,13 @@
-import clsx from "clsx";
+import { postRepository } from "@/repositories/post/json-post-repository";
 
-export default function HomePage() {
+export default async function HomePage() {
+    const posts = await postRepository.findAll();
+
     return (
         <div>
-            <h1>Ola mundo!</h1>
+            {posts.map((post) => (
+                <p key={post.id}>{post.title}</p>
+            ))}
         </div>
     );
 }
