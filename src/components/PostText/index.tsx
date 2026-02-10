@@ -2,13 +2,20 @@ import { formatDateTime, formatDistanceToNow } from "@/helpers/format-dateTime";
 import { PostHeading } from "../PostHeading";
 
 type PostTextProps = {
+    postHeadingAs: "h1" | "h2";
     title: string;
     excerpt: string;
     createdAt: string;
     url: string;
 };
 
-export function PostText({ title, excerpt, createdAt, url }: PostTextProps) {
+export function PostText({
+    postHeadingAs,
+    title,
+    excerpt,
+    createdAt,
+    url,
+}: PostTextProps) {
     const createdAtFormatedRelative = formatDistanceToNow(createdAt);
     const createdAtFormated = formatDateTime(createdAt);
     return (
@@ -21,7 +28,7 @@ export function PostText({ title, excerpt, createdAt, url }: PostTextProps) {
                 {createdAtFormated}
             </time>
 
-            <PostHeading as="h2" url={url}>
+            <PostHeading as={postHeadingAs} url={url}>
                 {title}
             </PostHeading>
 

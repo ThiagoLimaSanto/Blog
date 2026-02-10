@@ -26,6 +26,7 @@ export function PostFeatured() {
                     molestiae. Rerum voluptate sed aut!"
                 createdAt="2025-04-05T00:24:38.616Z"
                 url={`#`}
+                postHeadingAs="h1"
             ></PostText>
         </section>
     );

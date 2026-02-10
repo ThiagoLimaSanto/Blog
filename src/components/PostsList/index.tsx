@@ -26,6 +26,7 @@ export async function PostsList() {
                             excerpt={post.excerpt}
                             title={post.title}
                             url={postLink}
+                            postHeadingAs="h2"
                         />
                     </div>
                 );
