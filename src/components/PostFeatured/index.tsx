@@ -1,7 +1,13 @@
+import { findAllPublicPosts } from "@/lib/Post/queries";
 import { PostCoverImage } from "../PostCoverImage";
 import { PostText } from "../PostText";
 
-export function PostFeatured() {
+export async function PostFeatured() {
+    const posts = await findAllPublicPosts();
+    const post = posts[0];
+
+    const postLink = `/post/${post.slug}`;
+
     return (
         <section
             className="grid grid-cols-1 gap-8 mb-16
@@ -14,18 +20,16 @@ export function PostFeatured() {
                 imageProps={{
                     width: 1200,
                     height: 720,
-                    src: "/images/bryen_9.png",
-                    alt: "Titulo qualquer",
+                    src: post.coverImageUrl,
+                    alt: post.title,
                     priority: true,
                 }}
             />
             <PostText
-                title="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
-                excerpt=" Nisi, quibusdam? Velit ratione assumenda dicta reprehenderit, corporis
-                    earum illo animi asperiores quis, tempora nemo maiores, labore
-                    molestiae. Rerum voluptate sed aut!"
-                createdAt="2025-04-05T00:24:38.616Z"
-                url={`#`}
+                title={post.title}
+                excerpt={post.excerpt}
+                createdAt={post.createdAt}
+                url={postLink}
                 postHeadingAs="h1"
             ></PostText>
         </section>

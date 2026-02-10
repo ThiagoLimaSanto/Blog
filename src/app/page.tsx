@@ -1,4 +1,5 @@
 import { Container } from "@/components/Container";
+import { Footer } from "@/components/Footer";
 import { Heading } from "@/components/Heading";
 import { PostFeatured } from "@/components/PostFeatured";
 import { PostsList } from "@/components/PostsList";
@@ -15,11 +16,7 @@ export default async function HomePage() {
             <Suspense fallback={<SpinLoader />}>
                 <PostsList />
             </Suspense>
-            <footer>
-                <h1 className="text-6xl font-bold text-center py-8">
-                    Aqui é a Footer
-                </h1>
-            </footer>
+            <Footer />
         </Container>
     );
 }

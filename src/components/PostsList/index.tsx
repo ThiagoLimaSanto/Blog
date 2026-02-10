@@ -1,12 +1,12 @@
-import { postRepository } from "@/repositories/post/json-post-repository";
+import { findAllPublicPosts } from "@/lib/Post/queries";
 import { PostCoverImage } from "../PostCoverImage";
 import { PostText } from "../PostText";
 
 export async function PostsList() {
-    const posts = await postRepository.findAll();
+    const posts = await findAllPublicPosts();
     return (
         <section className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => {
+            {posts.slice(1).map((post) => {
                 const postLink = `/post/${post.slug}`;
                 return (
                     <div className="flex flex-col gap-4 group" key={post.id}>
