@@ -1,5 +1,6 @@
 import { formatDateTime, formatDistanceToNow } from "@/helpers/format-dateTime";
 import { PostHeading } from "../PostHeading";
+import { PostDate } from "../PostDate";
 
 type PostTextProps = {
     postHeadingAs: "h1" | "h2";
@@ -16,17 +17,9 @@ export function PostText({
     createdAt,
     url,
 }: PostTextProps) {
-    const createdAtFormatedRelative = formatDistanceToNow(createdAt);
-    const createdAtFormated = formatDateTime(createdAt);
     return (
         <div className="flex flex-col gap-4 sm:justify-center">
-            <time
-                className="text-slate-600 text-sm/tight"
-                dateTime={createdAt}
-                title={createdAtFormatedRelative}
-            >
-                {createdAtFormated}
-            </time>
+            <PostDate dateTime={createdAt} />
 
             <PostHeading as={postHeadingAs} url={url}>
                 {title}
