@@ -1,9 +1,14 @@
+import Link from "next/link";
+
 export function Footer() {
     return (
-        <footer>
-            <h1 className="text-6xl font-bold text-center py-8">
-                Aqui é a Footer
-            </h1>
+        <footer className="text-center">
+            <p className="py-8">
+                <span>
+                    Copyright &copy; {new Date().getFullYear()} |
+                    <Link href="/"> The Blog</Link>
+                </span>
+            </p>
         </footer>
     );
 }
